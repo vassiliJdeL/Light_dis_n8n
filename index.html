@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Soumission du mémoire / Thesis Submission</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{--bg:#f6f7fb;--card:#fff;--text:#111827;--muted:#6b7280;--border:#d1d5db;--primary:#4338ca;--radius:8px;--shadow:0 4px 6px rgba(0,0,0,.1)}
+    body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;padding:2rem}
+    form{background:var(--card);padding:2rem;border-radius:var(--radius);box-shadow:var(--shadow);max-width:600px;margin:0 auto}
+    h1{font-size:1.5rem}
+    label{display:block;margin-top:1rem}
+    input,select{width:100%;padding:.5rem;margin-top:.25rem;border:1px solid var(--border);border-radius:var(--radius)}
+    button{margin-top:1.5rem;background:var(--primary);color:#fff;border:none;padding:.75rem 1.5rem;border-radius:var(--radius);cursor:pointer}
+    .hint{margin-top:.5rem;font-size:.875rem;color:var(--muted)}
+    .docx-only{margin-left:.75rem;font-size:14px;color:var(--text);font-weight:bold}
+    .file-wrapper{display:flex;align-items:center;gap:.5rem;margin-top:.5rem}
+  </style>
+</head>
+<body>
+
+<form id="memoire-form"
+      action="https://hook.eu2.make.com/404rtrr13j5vbygd0zi1ck9wkv4j0hlm"
+      method="POST"
+      enctype="multipart/form-data"
+      target="dummyframe">
+
+  <h1>Soumission du mémoire / Thesis Submission</h1>
+
+  <label for="prenom">Prénom / Forename *</label>
+  <input type="text" id="prenom" name="prenom" required>
+
+  <label for="nom">Nom / Surname *</label>
+  <input type="text" id="nom" name="nom" required>
+
+  <label for="email">Email *</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="titre">Titre du mémoire / Thesis title *</label>
+  <input type="text" id="titre" name="titre" required>
+
+  <label for="langue">Langue / Language *</label>
+  <select id="langue" name="langue" required>
+    <option value="">—</option>
+    <option value="français">Français / French</option>
+    <option value="anglais">Anglais / English</option>
+  </select>
+
+  <label for="file">Fichier du mémoire / Thesis File *</label>
+  <div class="file-wrapper">
+    <input type="hidden"
+           id="file"
+           role="uploadcare-uploader"
+           name="file"
+           data-clearable="true"
+           data-multiple="false"
+           data-locale="fr"
+           data-tabs="file url gdrive dropbox"
+           required />
+    <span class="docx-only">.docx only</span>
+  </div>
+
+  <label for="rgpd">
+    <input type="checkbox" id="rgpd" name="rgpd" required>
+    J’accepte que mes données soient traitées dans le cadre de cette évaluation. / I consent to the processing of my data.
+  </label>
+
+  <!-- TOKEN pour le filtre dans Make -->
+  <input type="hidden" name="token" value="2_TOUGH_eval_5_on">
+
+  <button type="submit">Soumettre / Submit</button>
+
+  <div class="hint" aria-live="polite">Tous les champs sont obligatoires. / All fields are required.</div>
+</form>
+
+<!-- Évite l’ouverture de l’URL Make -->
+<iframe name="dummyframe" style="display:none;"></iframe>
+
+<script>
+  // Config Uploadcare AVANT le script
+  UPLOADCARE_PUBLIC_KEY = '21d7228fa1f01ac80183';
+  UPLOADCARE_LOCALE_TRANSLATIONS = {
+    buttons:{ choose:{ files:{ one:'Choisir un fichier…' } } }
+  };
+
+  // Redirection après soumission
+  document.getElementById('memoire-form').addEventListener('submit', function(){
+    setTimeout(() => { window.location.href = 'merci.html'; }, 1200);
+  });
+</script>
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+
+</body>
+</html>
